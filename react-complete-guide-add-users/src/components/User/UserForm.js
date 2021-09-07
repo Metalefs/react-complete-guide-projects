@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import styles from "./UserForm.module.css"
 
 import Button from "../UI/Button";
@@ -6,6 +6,9 @@ import Card from '../UI/Card';
 import Modal from '../UI/Modal';
 
 function UserForm(props) {
+    const usernameInputRef = useRef();
+    const ageInputRef = useRef();
+
 
     const [name,setName] = useState('')
     const [age,setAge] = useState('')
@@ -55,18 +58,27 @@ function UserForm(props) {
     return (
         <React.Fragment>
             {modal}            
-            <Card>
+            <Card   className={styles.input}> 
                 <form  
                     onSubmit={userFormSubmitHandler} 
                     className={styles.userForm}>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="username">Username</label>
-                        <input value={name} id="username" type="text" placeholder="" onChange={handleUsernameChanged}/>
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="age">Idade (Anos)</label>
-                        <input value={age} id="age" type="number" placeholder="" onChange={handleUserAgeChanged}/>
-                    </div>
+                    <label htmlFor="username">Username</label>
+                    <input 
+                        value={name} 
+                        id="username" 
+                        type="text" 
+                        placeholder="" 
+                        onChange={handleUsernameChanged} 
+                        ref={usernameInputRef}
+                    />
+                    <label htmlFor="age">Idade (Anos)</label>
+                    <input 
+                        value={age} 
+                        id="age" 
+                        type="number" 
+                        placeholder="" 
+                        onChange={handleUserAgeChanged}
+                        ref={ageInputRef}/>
                     <Button type="submit">Adicionar usuário</Button>
                 </form>
             </Card>

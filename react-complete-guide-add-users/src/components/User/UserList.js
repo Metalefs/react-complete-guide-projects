@@ -17,8 +17,8 @@ function UserList(props) {
     )
 
     return ( 
-        <Card>
-            <ul  className="userList">
+        <Card  className="userList">
+            <ul >
                 { 
                     props.users.map(user=>
                         (<UserItem 

@@ -1,6 +1,12 @@
 .userList{
-    padding:1rem;
-    margin: 10px 0;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 40rem;
+    list-style: none;
+    padding: 1rem;
+}
+.userList ul{
+    list-style: none;
 }
 .userList__fallback{
     padding: 1rem;
