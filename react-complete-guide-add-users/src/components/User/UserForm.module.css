@@ -1,0 +1,14 @@
+.userForm{
+    width: 100%;
+}
+.formGroup{
+    margin: 10px;
+}
+.formGroup label{
+    color: #000;
+    font-weight: bold;
+}
+.formGroup input{
+    width: 100%;
+    padding: 5px;
+}
