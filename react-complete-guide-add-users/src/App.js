@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import './App.css';
 import UserForm from "./components/User/UserForm";
 import UserList from "./components/User/UserList";
-import Card from "./components/UI/Card"
 
 function App() {
   

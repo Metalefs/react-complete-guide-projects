@@ -9,7 +9,7 @@ function UserForm(props) {
 
     const [name,setName] = useState('')
     const [age,setAge] = useState('')
-    const [modal, setModal] = useState(<div></div>);
+    const [modal, setModal] = useState(<React.Fragment></React.Fragment>);
     
     function handleUsernameChanged(event){
         setName(event.target.value)
@@ -50,10 +50,10 @@ function UserForm(props) {
     }
 
     const closeModal = () =>{
-        setModal(<div></div>);
+        setModal(<React.Fragment></React.Fragment>);
     }
     return (
-        <div>
+        <React.Fragment>
             {modal}            
             <Card>
                 <form  
@@ -70,7 +70,7 @@ function UserForm(props) {
                     <Button type="submit">Adicionar usuário</Button>
                 </form>
             </Card>
-        </div>
+        </React.Fragment>
          
     );
 }
