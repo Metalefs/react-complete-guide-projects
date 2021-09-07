@@ -8,11 +8,9 @@ function UserItem(props) {
     }
 
     return (
-        <div className={styles.userItem} onClick={handleDeleteUser}>
-            <div className={styles.userItem__inner}>
-                {props.name} ({props.age} anos)
-            </div>
-        </div> 
+        <li className={styles.userItem} onClick={handleDeleteUser}>
+            {props.name} ({props.age} anos)
+        </li> 
     );
 }
 

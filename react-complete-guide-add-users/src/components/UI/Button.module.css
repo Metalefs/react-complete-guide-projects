@@ -1,19 +1,22 @@
-.button{
+.button {
     font: inherit;
-    cursor: pointer;
-    padding: 10px;
-    border: 1px solid #40005d;
-    background-color: #40005d;
+    border: 1px solid #4f005f;
+    background: #4f005f;
     color: white;
-    margin-right: 1rem;
-    margin-top: 10px;
-    font-weight: bolder;
-}
-
-.button{
-    width:100%;
-}
-
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover,
+  .button:active {
+    background: #741188;
+    border-color: #741188;
+  }
+  
+  .button:focus {
+    outline: none;
+  }
 @media screen and (min-width:768px) {
     .button{
         width:auto;

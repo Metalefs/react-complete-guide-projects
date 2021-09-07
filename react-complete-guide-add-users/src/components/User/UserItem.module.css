@@ -1,9 +1,6 @@
 .userItem{
     border: 1px solid black;
-    width: 100%;
-    margin:10px 0;
-}
-.userItem__inner{
-    margin: 5px 0;
-    
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
 }

@@ -1,6 +1,8 @@
 import UserItem from "./UserItem";
 import Card from "../UI/Card";
 
+import "./UserList.css"
+
 function UserList(props) {
     
     function handleDeleteUser(id){
@@ -9,11 +11,27 @@ function UserList(props) {
 
     if(props.users.length === 0)
     return (
-        <h2>Nenhum usuário encontrado</h2>
+        <Card >
+            <h2 className="userList__fallback">Nenhum usuário encontrado</h2>
+        </Card>
     )
 
     return ( 
-        props.users.map(user=>(<UserItem deleteUser={handleDeleteUser} key={user.id} id={user.id} age={user.age} name={user.name}></UserItem>))
+        <Card>
+            <ul  className="userList">
+                { 
+                    props.users.map(user=>
+                        (<UserItem 
+                            deleteUser={handleDeleteUser}
+                            key={user.id}
+                            id={user.id}
+                            age={user.age}
+                            name={user.name}>
+                        </UserItem>)
+                    )
+                }
+            </ul>
+        </Card>
     );
 }
 

@@ -2,12 +2,15 @@ import React, {useState} from 'react';
 import styles from "./UserForm.module.css"
 
 import Button from "../UI/Button";
+import Card from '../UI/Card';
+import Modal from '../UI/Modal';
 
 function UserForm(props) {
 
     const [name,setName] = useState('')
     const [age,setAge] = useState('')
-
+    const [modal, setModal] = useState(<div></div>);
+    
     function handleUsernameChanged(event){
         setName(event.target.value)
     }
@@ -18,6 +21,21 @@ function UserForm(props) {
     function userFormSubmitHandler(event){
         event.preventDefault();
 
+        if(name.trim().length === 0 || age.trim().length === 0){
+            let aux = <Modal title="Dados inválidos!" close={closeModal}>
+                      <p>Por favor insira um nome e idade (valor não vazio)</p>
+                    </Modal>
+            setModal(aux);
+            return;
+        }
+        if(parseInt(age.trim()) <= 0){
+            let aux = <Modal title="Dados inválidos!" close={closeModal}>
+                        <p>Por favor insira uma idade válida (valor maior que 0)</p>
+                    </Modal>
+            setModal(aux);
+            return;
+        }
+
         const id =  Math.random().toString().substr(2, 8) + name 
 
         const userData = {
@@ -27,22 +45,33 @@ function UserForm(props) {
         }
 
         props.addUser(userData);
+        setName("")
+        setAge("")
     }
 
+    const closeModal = () =>{
+        setModal(<div></div>);
+    }
     return (
-        <form 
-            onSubmit={userFormSubmitHandler} 
-            className={styles.userForm}>
-            <div className={styles.formGroup}>
-                <label>Username</label>
-                <input type="text" placeholder="" onChange={handleUsernameChanged}/>
-            </div>
-            <div className={styles.formGroup}>
-                <label>Idade (Anos)</label>
-                <input type="number" placeholder="" onChange={handleUserAgeChanged}/>
-                <Button type="submit">Adicionar usuário</Button>
-            </div>
-        </form>
+        <div>
+            {modal}            
+            <Card>
+                <form  
+                    onSubmit={userFormSubmitHandler} 
+                    className={styles.userForm}>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="username">Username</label>
+                        <input value={name} id="username" type="text" placeholder="" onChange={handleUsernameChanged}/>
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="age">Idade (Anos)</label>
+                        <input value={age} id="age" type="number" placeholder="" onChange={handleUserAgeChanged}/>
+                    </div>
+                    <Button type="submit">Adicionar usuário</Button>
+                </form>
+            </Card>
+        </div>
+         
     );
 }
 

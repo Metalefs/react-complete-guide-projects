@@ -1,0 +1,7 @@
+.userList{
+    padding:1rem;
+    margin: 10px 0;
+}
+.userList__fallback{
+    padding: 1rem;
+}

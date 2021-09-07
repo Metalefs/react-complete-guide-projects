@@ -1,5 +1,6 @@
 import styles from "./Modal.module.css";
 import Button from "./Button";
+import Card from "./Card";
 
 function Modal(props) {
 
@@ -7,17 +8,17 @@ function Modal(props) {
         props.close(true);
     }
 
-    return  <div className={styles.overlay}>
+    return  <div className={styles.backdrop} onClick={closeModalHandler}>
                <div style={{height:"100%", display:"flex"}}>
-                    <div className={styles.modal}>
-                        <nav className={styles.modal__nav}><h2>{props.title}</h2></nav>
-                        <div className={styles.modal__body}>
+                    <Card className={styles.modal}>
+                        <nav className={styles.header}><h2>{props.title}</h2></nav>
+                        <div className={styles.content}>
                             {props.children}
-                            <footer className={styles.modal__footer}>
+                            <footer className={styles.actions}>
                                 <Button onClick={closeModalHandler}>Okay</Button>
                             </footer>
                         </div>
-                    </div> 
+                    </Card> 
                </div>
             </div>
 }

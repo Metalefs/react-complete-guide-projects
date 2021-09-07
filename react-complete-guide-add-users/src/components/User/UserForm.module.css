@@ -1,8 +1,8 @@
 .userForm{
-    width: 100%;
+    padding:1rem;
 }
 .formGroup{
-    margin: 10px;
+    margin: 10px 0;
 }
 .formGroup label{
     color: #000;
@@ -10,5 +10,5 @@
 }
 .formGroup input{
     width: 100%;
-    padding: 5px;
+    padding: 5px 0;
 }
